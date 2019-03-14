@@ -1,0 +1,14 @@
+{% extends "base.htm" %}
+{% block title %}Create Album{% endblock title %}
+{% block content %}
+    {% if form.errors %}
+    {{ form.errors }}
+    {% endif %}
+    <h3>Are you sure you want to Delete ?</h3>
+<form method="post" >
+{% csrf_token %}
+{{ form.as_p }}
+    <input type="submit" value="Yes, I'm sure" class="btn btn-danger">
+    <a href="/songs/{{ object.id }}" class="btn btn-info">No, take me back</a>
+</form>
+{% endblock content %}

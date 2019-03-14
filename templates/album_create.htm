@@ -1,0 +1,13 @@
+{% extends "base.htm" %}
+{% block title %}Create Album{% endblock title %}
+{% block content %}
+    {% if form.errors %}
+    {{ form.errors }}
+    {% endif %}
+<form method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Save</button>
+<button type="reset">Reset</button>
+</form>
+{% endblock content%}

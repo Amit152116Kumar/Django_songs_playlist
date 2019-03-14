@@ -1,0 +1,17 @@
+{% extends "base.htm" %}
+{% block title %}{{ object.Title }}{% endblock title %}
+{% block content %}
+{% if object.Cover %}
+    <img src="{{ object.Cover.url }}">
+{% endif %}
+<h1>{{ object.Title }} </h1>
+    <ul>
+        <li><b>Released On: </b><i>{{ object.Released_on }}</i></li>
+
+    </ul>
+
+    <a href="{{ object.id }}/edit" class="btn btn-info">Update</a>
+    <a href="{{ object.id }}/delete" class="btn btn-danger" >Delete</a>
+
+
+{% endblock content%}

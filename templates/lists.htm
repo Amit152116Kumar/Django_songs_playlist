@@ -1,0 +1,13 @@
+{% extends "base.htm" %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+
+<h1>List of {{ title }}</h1>
+    <a href="create/" class="btn btn-info">Add New {{ title }}</a>
+    <ul>
+    {% for obj in object_list %}
+    <li><a href="{{ obj.id }}">{{ obj.Title }}</a>
+    {% endfor %}
+    </ul>
+
+{% endblock content%}

@@ -1,0 +1,38 @@
+{% extends "base.htm" %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+
+    <h1>Hello World</h1>
+    <h3 ><a href="{% url 'song-create' %}">Create your own Playlist</a></h3>
+
+    <form class="form" method="get" action=".">
+        <input type="text" placeholder="Search" name="q" value="{{ request.GET.q }}">
+        <button class="btn btn-info btn-outline-secondary text-light"  type="submit">Search</button>
+    </form>
+{% if user.is_authenticated %}
+    <hr/>
+    {% if album %}
+        <ul> {% for obj in album  %}
+            <li><h5><b>{{ obj.Title }}</b></h5></li>
+                <ul>
+                      {% for obj in obj.song_set.all %}
+                        <li>{{ obj }}
+                            <ul>
+                                {% for artist in obj.Artist.all %}
+                                    <li type="square">{{ artist }}</li>
+                                    {% endfor %}
+                            </ul>
+                        </li>{% endfor %}
+                </ul>
+
+    {% endfor %}
+</ul>
+
+    {% else %}
+    <p class="lead">No Items Found</p>
+{% endif %}
+
+{% endif %}
+
+
+{% endblock content%}

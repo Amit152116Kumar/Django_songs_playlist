@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/nav_bar.css' %}">
+<div class="navbar1"  >
+    <i>
+        <a href="{% url 'home' %}" class="btn"><i class="fa fa-home"></i> Home</a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'songs' %}" class="btn"><i class="fa fa-music"></i> Songs</a>
+            <a href="{% url 'album' %}" class="btn"><i class="fa fa-book"></i> Album</a>
+            <a href="{% url 'artists' %}" class="btn"><i class="fa fa-users"></i> Artists</a>
+            <a href="{% url 'logout' %}" class="right btn" ><i class="fa fa-sign-out"></i> Logout</a>
+            <a href="{% url 'profile' username=user.username %}" class="right btn"><i class="fa fa-user-circle"></i>
+                Profile</a>
+        {% else %}
+            <a href="{% url 'Register' %}" class="right btn"><i class="fa fa-user-plus"></i> Register</a>
+            <a href="{% url 'login' %}" class="right btn"><i class="fa fa-sign-in"></i> Login</a>
+        {% endif %}
+
+    </i>
+</div>
+

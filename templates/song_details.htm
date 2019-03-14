@@ -1,0 +1,16 @@
+{% extends "base.htm" %}
+{% block title %}{{ object.Title }}{% endblock title %}
+{% block content %}
+
+<h1>{{ object.Title }} </h1>
+    <ul>
+      <li><b>Album : </b><i>{{ object.Album }}</i></li>
+      <li><b>Artist : </b><i>{{ object.Artist.all }}</i></li>
+      <li><b>Lyrics : </b><i>{{ object.Lyrics }}</i></li>
+      <li><b>Duration : </b><i>{{ object.Duration }}</i></li>
+    </ul>
+
+    <a href="{{ object.id }}/edit" class="btn btn-info">Update</a>
+    <a href="{{ object.id }}/delete" class="btn btn-danger" >Delete</a>
+
+{% endblock content%}
